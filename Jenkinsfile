@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 echo 'Running Selenium tests from main branch...'
-                sh 'mvn clean test'
+                sh 'mvn clean install'
             }
         }
     }
@@ -49,3 +49,4 @@ pipeline {
         }
     }
 }
+
