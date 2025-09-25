@@ -24,11 +24,11 @@ pipeline {
         }
 
         stage('Run Selenium Tests') {
-            when {
-                branch 'main' // Only run when changes are pushed to 'main' (i.e., after PR merge)
-            }
+            // when {
+            //     branch 'main' // Only run when changes are pushed to 'main' (i.e., after PR merge)
+            // }
             steps {
-                echo 'Running Selenium tests from main branch...'
+                echo 'Running Selenium tests from any branch...'
                 sh 'mvn clean install'
             }
         }
@@ -49,4 +49,5 @@ pipeline {
         }
     }
 }
+
 
