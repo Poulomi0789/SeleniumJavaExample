@@ -27,10 +27,22 @@ pipeline {
             // when {
             //     branch 'main' // Only run when changes are pushed to 'main' (i.e., after PR merge)
             // }
+            // steps {
+            //     echo 'Running Selenium tests from any branch...'
+            //     sh 'mvn clean install'
+            // }
             steps {
                 echo 'Running Selenium tests from any branch...'
-                sh 'mvn clean install'
-            }
+                    script {
+                            if (isUnix()) {
+                            sh 'mvn clean test'
+                                } 
+                            else {
+                            bat 'mvn clean test'
+                                }    
+                            }
+                }
+
         }
     }
 
@@ -49,5 +61,6 @@ pipeline {
         }
     }
 }
+
 
 
